@@ -63,6 +63,7 @@ public class Enemy : MonoBehaviour
 
 
         onCreated?.Invoke();
+        EnemyManager.Instance.OnSpawn(this);
     }
 
     //private void RandomColor()
@@ -98,6 +99,9 @@ public class Enemy : MonoBehaviour
         //modelGameObject.SetActive(false);
 
         Destroy(gameObject, destroyDelay);
+
+        onDestroyed?.Invoke();
+        EnemyManager.Instance.OnDestroyed(this);
     }
 
 
